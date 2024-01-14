@@ -1,12 +1,6 @@
 #include <iostream>
 #include <ctype.h>
-
 using namespace std;
-
-
-
-
-
 int main() {
 
     int gridlen;
@@ -47,7 +41,6 @@ int main() {
                 cout<<endl;
                 grid[snakepos][snakepos2+1]='S';
                 snakepos2=snakepos2+1;
-
             }
         }
         if(tolower(WTG)=='d')
@@ -57,12 +50,10 @@ int main() {
             snakepos2=snakepos2+1;
             if(snakepos2>gridlen-1)
             {
-
                 cout<<"Invalid Move Repeat";
                 cout<<endl;
                 grid[snakepos][snakepos2-1]='S';
                 snakepos2=snakepos2-1;
-
             }
         }
         if(tolower(WTG)=='w')
@@ -91,9 +82,15 @@ int main() {
                 snakepos=snakepos-1;
             }
         }
-
+        if(snakepos2+1==gridlen)
+        {
+            grid[snakepos][snakepos2+1]='\0';
+        }
+        if(snakepos+1==gridlen)
+        {
+            grid[snakepos+1][snakepos2]='\0';
+        }
     }
-
     for (int i = 0; i <=gridlen; ++i) {
         for (int j = 0; j <=gridlen ; ++j) {
             cout<<grid[i][j]<<" ";
